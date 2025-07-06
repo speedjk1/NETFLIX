@@ -8,40 +8,80 @@
     <link rel="icon" href="logo.png" type="image">
 </head>
 <body>
-    <header>
-        <div class="logo">Netflix</div>
-        <nav class="nav">
-            <a href="#">Inicio</a>
-            <a href="#">Series</a>
-            <a href="#">Películas</a>
-            <a href="#">Documentales</a>
-        </nav>
-    </header>
-    <section class="timeline">
-        <div class="event">
-            <h3>1997</h3>
-            <p>Netflix es fundada como un servicio de alquiler de DVDs por correo.</p>
+<header>
+    <div class="logo">Netflix</div>
+    <nav class="nav">
+        <a href="#">Inicio</a>
+        <a href="#">Series</a>
+        <a href="#">Películas</a>
+        <a href="#">Documentales</a>
+    </nav>
+</header>
+
+<div class="container">
+    <div class="title">La historia de Netflix</div>
+
+    <div class="carousel-container">
+        <div class="carousel" id="carousel">
+            <div class="slide">
+                <div class="slide-content">
+                    <h3>1997</h3>
+                    <p>Fundación de Netflix por Reed Hastings y Marc Randolph. Servicio inicial de alquiler de DVDs por correo.</p>
+                </div>
+                <img src="fundacion2.jpg" alt="Fundación Netflix">
+            </div>
+            <div class="slide">
+                <div class="slide-content">
+                    <h3>1999</h3>
+                    <p>Introducción del modelo de suscripción mensual ilimitada para alquiler de DVDs, eliminando las multas por demora.</p>
+                </div>
+                <img src="https://upload.wikimedia.org/wikipedia/en/6/6d/Netflix_website_1998.png" alt="Suscripción DVD Netflix">
+            </div>
+            <div class="slide">
+                <div class="slide-content">
+                    <h3>2007</h3>
+                    <p>Lanzamiento del servicio de streaming en EE.UU., eliminando la dependencia del formato físico.</p>
+                </div>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/Netflix_logo_2007.svg" alt="Netflix Streaming">
+            </div>
+            <div class="slide">
+                <div class="slide-content">
+                    <h3>2010 - 2016</h3>
+                    <p>Expansión internacional (Canadá, América Latina) y lanzamiento de su primer contenido original "House of Cards". Producción propia basada en datos de usuarios.</p>
+                </div>
+                <img src="https://upload.wikimedia.org/wikipedia/en/3/3a/House_of_Cards_title_card.png" alt="House of Cards">
+            </div>
+            <div class="slide">
+                <div class="slide-content">
+                    <h3>2017 - 2020</h3>
+                    <p>Mejoras en el algoritmo de recomendación con IA, introducción de descargas offline y contenido interactivo como "Bandersnatch".</p>
+                </div>
+                <img src="https://upload.wikimedia.org/wikipedia/en/e/e5/Black_Mirror_Bandersnatch.png" alt="Bandersnatch">
+            </div>
+            <div class="slide">
+                <div class="slide-content">
+                    <h3>2021 - 2024</h3>
+                    <p>Expansión hacia videojuegos móviles, personalización con IA generativa y modelos híbridos con planes con publicidad.</p>
+                </div>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2016_logo.svg" alt="Netflix Planes con Publicidad">
+            </div>
         </div>
-        <div class="event">
-            <h3>2007</h3>
-            <p>Se lanza el servicio de streaming, permitiendo a los usuarios ver películas y series en línea.</p>
-        </div>
-        <div class="event">
-            <h3>2013</h3>
-            <p>Netflix produce su primera serie original, "House of Cards".</p>
-        </div>
-        <div class="event">
-            <h3>2016</h3>
-            <p>Netflix se expande globalmente y está disponible en más de 190 países.</p>
-        </div>
-        <div class="event">
-            <h3>2020</h3>
-            <p>Netflix supera los 200 millones de suscriptores a nivel mundial.</p>
-        </div>
-        <div class="event">
-            <h3>2023</h3>
-            <p>Netflix lanza su plan con anuncios, una nueva modalidad más económica.</p>
-        </div>
-    </section>
+    </div>
+
+    <div class="year-slider" id="yearSlider">
+        <div class="year" data-index="0">1997</div>
+        <div class="year" data-index="1">1999</div>
+        <div class="year" data-index="2">2007</div>
+        <div class="year" data-index="3">2010-2016</div>
+        <div class="year" data-index="4">2017-2020</div>
+        <div class="year" data-index="5">2021-2024</div>
+    </div>
+
+    <div class="progress-line">
+        <div class="progress-indicator" id="progressIndicator"></div>
+    </div>
+</div>
+<script src="script.js"></script>
 </body>
 </html>
+
