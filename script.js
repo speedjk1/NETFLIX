@@ -6,50 +6,43 @@ const progressLine = document.querySelector('.progress-line');
 let isDragging = false;
 
 function updateCarousel(index) {
-    carousel.style.transform = `translateX(-${index * 100}%)`;
-    progressIndicator.style.left = `${(index / (years.length - 1)) * 100}%`;
-
-    years.forEach(year => year.classList.remove('active'));
-    years[index].classList.add('active');
+  carousel.style.transform = `translateX(-${index * 100}%)`;
+  progressIndicator.style.left = `${(index / (years.length - 1)) * 100}%`;
+  years.forEach((year, i) => {
+    year.classList.toggle('active', i === index);
+  });
 }
 
-// Click en años
+// Inicializar con la primera slide activa
+updateCarousel(0);
+
+// Clic en los años
 years.forEach((year, index) => {
-    year.addEventListener('click', () => updateCarousel(index));
+  year.addEventListener('click', () => updateCarousel(index));
 });
 
-// Eventos de mouse (PC)
-progressIndicator.addEventListener('mousedown', startDrag);
-document.addEventListener('mousemove', onMouseDrag);
-document.addEventListener('mouseup', endDrag);
+// Arrastrar con mouse
+progressIndicator.addEventListener('mousedown', () => isDragging = true);
+document.addEventListener('mouseup', () => isDragging = false);
+document.addEventListener('mousemove', (e) => {
+  if (!isDragging) return;
+  handleMove(e.clientX);
+});
 
-// Eventos táctiles (móviles/tablets)
-progressIndicator.addEventListener('touchstart', startDrag);
-document.addEventListener('touchmove', onTouchDrag);
-document.addEventListener('touchend', endDrag);
+// Arrastrar con touch
+progressIndicator.addEventListener('touchstart', () => isDragging = true);
+document.addEventListener('touchend', () => isDragging = false);
+document.addEventListener('touchmove', (e) => {
+  if (!isDragging) return;
+  if (e.touches.length > 0) {
+    handleMove(e.touches[0].clientX);
+  }
+});
 
-function startDrag(e) {
-    isDragging = true;
-}
-
-function onMouseDrag(e) {
-    if (!isDragging) return;
-    const rect = progressLine.getBoundingClientRect();
-    let percent = (e.clientX - rect.left) / rect.width;
-    percent = Math.max(0, Math.min(1, percent));
-    const index = Math.round(percent * (years.length - 1));
-    updateCarousel(index);
-}
-
-function onTouchDrag(e) {
-    if (!isDragging || e.touches.length === 0) return;
-    const rect = progressLine.getBoundingClientRect();
-    let percent = (e.touches[0].clientX - rect.left) / rect.width;
-    percent = Math.max(0, Math.min(1, percent));
-    const index = Math.round(percent * (years.length - 1));
-    updateCarousel(index);
-}
-
-function endDrag() {
-    isDragging = false;
+function handleMove(clientX) {
+  const rect = progressLine.getBoundingClientRect();
+  let percent = (clientX - rect.left) / rect.width;
+  percent = Math.max(0, Math.min(1, percent));
+  const index = Math.round(percent * (years.length - 1));
+  updateCarousel(index);
 }
