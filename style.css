@@ -1,124 +1,246 @@
+/* Estilos base (Escritorio) */
 body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: #000;
-            color: #fff;
-        }
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px;
-            background-color: #000;
-        }
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #000;
+    color: #fff;
+}
 
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #000;
+    flex-wrap: wrap;
+}
 
-        .logo {
-            color: #e50914;
-            font-size: 28px;
-            font-weight: bold;
-        }
-        .nav a {
-            color: #fff;
-            margin-left: 20px;
-            text-decoration: none;
-            font-size: 16px;
-        }
-        .container {
-            padding: 40px 20px;
-            text-align: center;
-        }
-        .title {
-            font-size: 36px;
-            margin-bottom: 30px;
-            text-align: center;
-        }
-        .carousel-container {
-            position: relative;
-            overflow: hidden;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-        .carousel {
-            display: flex;
-            transition: transform 0.5s ease;
-        }
-        .slide {
-            min-width: 100%;
-            box-sizing: border-box;
-            padding: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-        }
-        .slide-content {
-            flex: 1;
-            padding-right: 20px;
-            min-width: 250px;
-        }
-        .slide img {
-            flex: 1;
-            max-width: 400px;
-            width: 100%;
-            border-radius: 10px;
-        }
-        .year-slider {
-            position: relative;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-top: 30px;
-            flex-wrap: wrap;
-        }
-        .year {
-            margin: 5px 10px;
-            cursor: pointer;
-            font-size: 18px;
-            color: #888;
-            position: relative;
-        }
-        .year.active {
-            color: #e50914;
-            font-weight: bold;
-        }
-        .progress-line {
-            position: relative;
-            width: 100%;
-            height: 4px;
-            background-color: #333;
-            margin-top: 20px;
-        }
-        .progress-indicator {
-            position: absolute;
-            top: -6px;
-            width: 16px;
-            height: 16px;
-            background-color: #e50914;
-            border-radius: 50%;
-            cursor: grab;
-            transition: left 0.3s ease;
-        }
+.logo {
+    color: #e50914;
+    font-size: 28px;
+    font-weight: bold;
+}
 
-        @media (max-width: 600px) {
-            .slide {
-                flex-direction: column;
-            }
-            .slide-content {
-                padding-right: 0;
-                margin-bottom: 20px;
-            }
-            .title {
-                font-size: 24px;
-            }
-            .nav a {
-                margin-left: 10px;
-                font-size: 14px;
-            }
-            header {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-        }
+.nav a {
+    color: #fff;
+    margin-left: 20px;
+    text-decoration: none;
+    font-size: 16px;
+}
 
-        
+.container {
+    padding: 40px 20px;
+    text-align: center;
+    overflow-x: hidden;
+}
+
+.title {
+    font-size: 36px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.carousel-container {
+    position: relative;
+    overflow: hidden;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.carousel {
+    display: flex;
+    transition: transform 0.5s ease;
+    will-change: transform;
+}
+
+.slide {
+    min-width: 100%;
+    box-sizing: border-box;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.slide-content {
+    flex: 1;
+    padding-right: 20px;
+    min-width: 250px;
+    text-align: left;
+}
+
+.slide-content h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.slide-content p {
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.slide img {
+    flex: 1;
+    max-width: 400px;
+    width: 100%;
+    border-radius: 10px;
+    height: auto;
+}
+
+/* Barra de años */
+.year-slider {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+    flex-wrap: wrap;
+}
+
+.year {
+    margin: 5px 10px;
+    cursor: pointer;
+    font-size: 18px;
+    color: #888;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.year.active {
+    color: #e50914;
+    font-weight: bold;
+}
+
+/* Línea de progreso */
+.progress-line {
+    position: relative;
+    width: 100%;
+    height: 4px;
+    background-color: #333;
+    margin-top: 20px;
+}
+
+.progress-indicator {
+    position: absolute;
+    top: -6px;
+    width: 16px;
+    height: 16px;
+    background-color: #e50914;
+    border-radius: 50%;
+    cursor: grab;
+    transition: left 0.3s ease;
+}
+
+/* Estilos para tablets */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nav a {
+        margin-left: 10px;
+        font-size: 14px;
+    }
+
+    .slide {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .slide-content {
+        padding-right: 0;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    .title {
+        font-size: 28px;
+    }
+
+    .slide-content h3 {
+        font-size: 20px;
+    }
+
+    .slide-content p {
+        font-size: 15px;
+    }
+
+    .slide img {
+        max-width: 90%;
+    }
+
+    .year {
+        font-size: 16px;
+    }
+}
+
+/* Estilos para móviles */
+@media (max-width: 480px) {
+    body {
+        font-size: 16px;
+        background-color: #0d0d0d;
+    }
+
+    .title {
+        font-size: 24px;
+        margin-bottom: 20px;
+        text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
+    }
+
+    .slide {
+        padding: 10px;
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
+        border-radius: 10px;
+        margin-bottom: 20px;
+    }
+
+    .slide-content {
+        padding: 10px;
+        text-align: center;
+    }
+
+    .slide-content h3 {
+        font-size: 18px;
+        margin-bottom: 8px;
+    }
+
+    .slide-content p {
+        font-size: 14px;
+        color: #ccc;
+    }
+
+    .slide img {
+        border-radius: 8px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .year {
+        font-size: 14px;
+        padding: 5px 8px;
+        border-radius: 5px;
+        background-color: #111;
+        margin: 4px;
+    }
+
+    .year.active {
+        background-color: #e50914;
+        color: #fff;
+    }
+
+    .nav {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .nav a {
+        margin: 5px 10px;
+    }
+
+    .progress-indicator {
+        width: 14px;
+        height: 14px;
+        box-shadow: 0 0 6px #e50914;
+    }
+}
